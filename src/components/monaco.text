@@ -1,0 +1,26 @@
+<template>
+  <div id="container" class="container" style="width:800px;height:600px;border:1px solid #ccc"></div>
+</template>
+
+<script>
+import * as monaco from 'monaco-editor'
+export default {
+  data () {
+    return {}
+  },
+  mounted () {
+    this.editor = monaco.editor.create(document.getElementById('container'), {
+      value:'',
+      language: 'sql',
+      
+    })
+    this.editor.trigger('随便写点儿啥', this.editor.action.triggerSuggest, {});
+  }
+}
+</script>
+<style scoped>
+.container {
+  text-align: left;
+}
+
+</style>
